@@ -1,2 +1,1 @@
-# distributed-rate-limiter
-High available rate limiter using etcd raft package
+High available rate limiter (in memory) using etcd raft package
