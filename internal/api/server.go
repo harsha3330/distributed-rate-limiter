@@ -21,8 +21,7 @@ type CheckRequest struct {
 	Subject  string `json:"subject"`
 }
 
-func NewAppServer(bs *bucket.BucketStore, ps *policy.PolicyStore) *AppServer {
-	rl := ratelimiter.NewRateLimiter(bs, ps)
+func NewAppServer(bs *bucket.BucketStore, ps *policy.PolicyStore, rl *ratelimiter.RateLimiter) *AppServer {
 	return &AppServer{
 		rateLimiter: rl,
 		policyStore: ps,

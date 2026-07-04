@@ -80,3 +80,11 @@ func (bs *BucketStore) DeleteBucket(key BucketKey) error {
 	delete(bs.state, key)
 	return nil
 }
+
+func (bs *BucketStore) UpdateBucket(key BucketKey, bucket *Bucket) error {
+	if _, ok := bs.state[key]; !ok {
+		return fmt.Errorf("bucket with subject %q and policy %q not found", key.Subject, key.PolicyID)
+	}
+	bs.state[key] = bucket
+	return nil
+}
